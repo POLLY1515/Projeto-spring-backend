@@ -14,24 +14,20 @@ import jakarta.persistence.Transient;
 
 @Entity
 @Table(name = "tb_category")
-public class Category implements Serializable  {
+public class Category implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-	
+
 	@Transient
 	private Set<Product> products = new HashSet<>();
-	
-	
+
 	public Category() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
-
 
 	public Category(Long id, String name) {
 		super();
@@ -39,21 +35,17 @@ public class Category implements Serializable  {
 		this.name = name;
 	}
 
-
 	public Long getId() {
 		return id;
 	}
-
 
 	public void setId(Long id) {
 		this.id = id;
 	}
 
-
 	public String getName() {
 		return name;
 	}
-
 
 	public void setName(String name) {
 		this.name = name;
@@ -68,7 +60,6 @@ public class Category implements Serializable  {
 		return Objects.hash(id);
 	}
 
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -81,9 +72,4 @@ public class Category implements Serializable  {
 		return Objects.equals(id, other.id);
 	}
 
-
-	
-	
-	
-	
 }
